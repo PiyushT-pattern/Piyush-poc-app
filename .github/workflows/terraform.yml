@@ -27,7 +27,7 @@ jobs:
       - name: Export AWS Profile
         run: |
           echo "AWS_PROFILE=Sandbox" >> $GITHUB_ENV
-          aws sts get-caller-identity --profile Sandbox || exit 1
+          aws sts get-caller-identity || exit 1
 
       - name: Terraform Init
         run: |
