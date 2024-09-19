@@ -25,22 +25,18 @@ jobs:
           aws configure set region us-east-1 --profile Sandbox
 
       - name: Export AWS Profile
-        run: echo "AWS_PROFILE=Sandbox" >> $GITHUB_ENV   
+        run: |
+          echo "AWS_PROFILE=Sandbox" >> $GITHUB_ENV
+          aws sts get-caller-identity --profile sandbox || exit 1
 
       - name: Terraform Init
-        env:
-          AWS_PROFILE: Sandbox  # Use the specified profile
         run: |
           terraform init
 
       - name: Terraform Plan
-        env:
-          AWS_PROFILE: Sandbox
         run: |
           terraform plan
 
       - name: Terraform Apply
-        env:
-          AWS_PROFILE: Sandbox
         run: |
           terraform apply -auto-approve
