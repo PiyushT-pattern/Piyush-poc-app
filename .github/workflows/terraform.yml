@@ -18,11 +18,11 @@ jobs:
 
       - name: Configure AWS Credential
         env:
-          AWS_ACCESS_KEY: ${{ secrets.AWS_SANDBOX_ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SANDBOX_SECRET_KEY }}
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
         run: |
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY --profile Sandbox
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile Sandbox
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY --profile sandbox
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile sandbox
         
         
 
