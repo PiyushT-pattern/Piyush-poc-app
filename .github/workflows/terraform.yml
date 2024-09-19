@@ -34,7 +34,8 @@ jobs:
         env:
              AWS_ACCESS_KEY_ID: ${{ secrets.AWS_SANDBOX_ACCESS_KEY }}
              AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SANDBOX_SECRET_KEY }}
-        run: terraform init
+        run:  aws sso login --profile Sandbox 
+              terraform init
 
       - name: Terraform Validate
         run: terraform validate
