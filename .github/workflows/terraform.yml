@@ -23,6 +23,7 @@ jobs:
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile Sandbox
           # Optionally set the default region
           aws configure set region us-east-1 --profile Sandbox
+          aws sts get-caller-identity --profile sandbox || exit 1
 
       - name: Terraform Init
         env:
